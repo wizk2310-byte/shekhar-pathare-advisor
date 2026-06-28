@@ -154,38 +154,54 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
-      {/* Background image — right-anchored, faded into cream */}
+    <section id="top" className="relative isolate overflow-hidden text-[oklch(0.96_0.01_82)]">
+      {/* Full-bleed background image with dramatic dark overlays */}
       <div className="absolute inset-0 -z-10">
         <img
           src={heroTower}
           alt=""
           width={1600}
           height={1920}
-          className="absolute right-0 top-0 h-full w-full object-cover object-right opacity-[0.85] md:w-[62%]"
+          className="h-full w-full object-cover object-[65%_center] scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--background)] via-[var(--background)]/85 to-transparent md:via-[var(--background)]/70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)]/40 via-transparent to-transparent" />
+        {/* Deep charcoal vignette */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_40%,transparent_0%,oklch(0.15_0.01_40/0.55)_55%,oklch(0.12_0.01_40/0.85)_100%)]" />
+        {/* Left-to-right charcoal wash for legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.14_0.012_40/0.92)] via-[oklch(0.16_0.012_40/0.65)] to-[oklch(0.16_0.012_40/0.25)]" />
+        {/* Soft gold light bloom from the sun */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_70%,oklch(0.75_0.12_75/0.18),transparent_45%)]" />
+        {/* Cream fade at bottom to blend into next section */}
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent to-[var(--background)]" />
+        {/* Film grain */}
+        <div className="absolute inset-0 opacity-[0.12] mix-blend-overlay" style={{
+          backgroundImage: "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.7'/></svg>\")",
+        }} />
       </div>
 
-      <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-6 px-6 pt-16 pb-28 md:px-10 md:pt-28 md:pb-40">
-        <div className="col-span-12 md:col-span-7 lg:col-span-6 fade-up">
+      {/* Ornamental gold-rule frame */}
+      <div className="pointer-events-none absolute inset-4 -z-[5] border border-[var(--gold)]/15 md:inset-6" />
+      <div className="pointer-events-none absolute left-6 top-6 hidden h-8 w-8 border-l border-t border-[var(--gold)]/60 md:block" />
+      <div className="pointer-events-none absolute right-6 top-6 hidden h-8 w-8 border-r border-t border-[var(--gold)]/60 md:block" />
+      <div className="pointer-events-none absolute bottom-6 left-6 hidden h-8 w-8 border-b border-l border-[var(--gold)]/60 md:block" />
+      <div className="pointer-events-none absolute bottom-6 right-6 hidden h-8 w-8 border-b border-r border-[var(--gold)]/60 md:block" />
+
+      <div className="mx-auto grid min-h-[88vh] max-w-[1400px] grid-cols-12 gap-6 px-6 pt-20 pb-28 md:px-10 md:pt-32 md:pb-36">
+        <div className="col-span-12 self-center md:col-span-8 lg:col-span-7 fade-up">
           <div className="flex items-center gap-3">
             <span className="h-px w-10 bg-[var(--gold)]" />
-            <span className="eyebrow">Est. Practice · Pune</span>
+            <span className="text-[11px] uppercase tracking-[0.28em] text-[var(--gold)]">Est. Practice · Pune</span>
           </div>
 
-          <h1 className="mt-8 font-serif text-[clamp(3rem,8.5vw,7rem)] leading-[0.95] tracking-[-0.02em]">
+          <h1 className="mt-8 font-serif text-[clamp(3.25rem,9vw,7.5rem)] leading-[0.92] tracking-[-0.025em]">
             Shekhar<br />
-            <span className="italic text-[var(--gold)]">Pathare</span>
+            <span className="italic font-light text-[var(--gold)]">Pathare</span>
           </h1>
 
-          <p className="mt-8 max-w-xl text-[15px] leading-[1.7] text-muted-foreground md:text-[17px]">
+          <p className="mt-8 max-w-xl text-[15px] leading-[1.75] text-[oklch(0.92_0.01_82)]/80 md:text-[17px]">
             A discreet Pune practice for{" "}
-            <span className="text-foreground">commercial leasing</span> and{" "}
-            <span className="text-foreground">premium property acquisitions</span>
-            — built on two decades of relationships, and the patience that real estate of consequence demands.
+            <span className="text-[oklch(0.97_0.01_82)]">commercial leasing</span> and{" "}
+            <span className="text-[oklch(0.97_0.01_82)]">premium property acquisitions</span>
+            {" "}— built on two decades of relationships, and the patience that real estate of consequence demands.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
@@ -193,7 +209,7 @@ function Hero() {
               href={WHATSAPP}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-[13px] font-medium tracking-wide text-primary-foreground transition-all hover:bg-[var(--gold)]"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-[var(--gold)] px-7 py-3.5 text-[13px] font-medium tracking-wide text-[oklch(0.18_0.012_40)] transition-all hover:bg-[oklch(0.96_0.01_82)]"
             >
               <MessageCircle className="h-4 w-4" />
               Begin on WhatsApp
@@ -201,14 +217,14 @@ function Hero() {
             </a>
             <a
               href={PHONE_HREF}
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-foreground/30 px-7 py-3.5 text-[13px] font-medium transition-colors hover:border-foreground hover:bg-foreground/5"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-[oklch(0.96_0.01_82)]/40 px-7 py-3.5 text-[13px] font-medium text-[oklch(0.96_0.01_82)] transition-colors hover:border-[var(--gold)] hover:text-[var(--gold)]"
             >
               <Phone className="h-4 w-4" />
               {PHONE}
             </a>
           </div>
 
-          <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          <div className="mt-16 flex flex-wrap items-center gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.24em] text-[oklch(0.92_0.01_82)]/60">
             <span>Serving Pune</span>
             <span className="h-px w-6 bg-[var(--gold)]/60" />
             <span>By Appointment</span>
@@ -218,26 +234,32 @@ function Hero() {
         </div>
 
         {/* right-side floating credential card */}
-        <div className="col-span-12 mt-auto self-end md:col-span-5 md:col-start-8 lg:col-span-4 lg:col-start-9">
-          <div className="ml-auto max-w-sm rounded-2xl border border-foreground/10 bg-background/70 p-6 backdrop-blur-md">
+        <div className="col-span-12 mt-auto self-end md:col-span-4 md:col-start-9 lg:col-start-10">
+          <div className="ml-auto max-w-sm rounded-2xl border border-[var(--gold)]/25 bg-[oklch(0.14_0.012_40/0.55)] p-6 backdrop-blur-xl">
             <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-[var(--gold)]" />
-              <span className="text-[10px] uppercase tracking-[0.25em] text-[var(--gold)]">Featured Listing</span>
+              <span className="text-[10px] uppercase tracking-[0.28em] text-[var(--gold)]">Featured Listing</span>
             </div>
-            <p className="mt-5 font-serif text-xl leading-snug">
+            <p className="mt-5 font-serif text-xl leading-snug text-[oklch(0.96_0.01_82)]">
               Pre-leased commercial tower
             </p>
-            <p className="mt-2 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+            <p className="mt-2 text-xs uppercase tracking-[0.18em] text-[oklch(0.92_0.01_82)]/60">
               Koregaon Park · Placeholder
             </p>
-            <div className="mt-6 flex items-center justify-between border-t border-foreground/10 pt-5 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+            <div className="mt-6 flex items-center justify-between border-t border-[oklch(0.96_0.01_82)]/15 pt-5 text-[11px] uppercase tracking-[0.22em] text-[oklch(0.92_0.01_82)]/70">
               <span>Yield · 7.2%</span>
-              <a href="#contact" className="inline-flex items-center gap-1 text-foreground transition-colors hover:text-[var(--gold)]">
+              <a href="#contact" className="inline-flex items-center gap-1 text-[oklch(0.96_0.01_82)] transition-colors hover:text-[var(--gold)]">
                 Enquire <ArrowRight className="h-3 w-3" />
               </a>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Scroll cue */}
+      <div className="absolute bottom-10 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-[oklch(0.92_0.01_82)]/60 md:flex">
+        <span>Scroll</span>
+        <span className="h-10 w-px bg-gradient-to-b from-[var(--gold)] to-transparent" />
       </div>
     </section>
   );
