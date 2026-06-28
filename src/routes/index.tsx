@@ -7,6 +7,21 @@ import heroTower from "@/assets/hero-tower.jpg";
 import leaseInterior from "@/assets/lease-interior.jpg";
 import saleAerial from "@/assets/sale-aerial.jpg";
 import aboutDetail from "@/assets/about-detail.jpg";
+import listing1 from "@/assets/listing-1.jpg";
+import listing2 from "@/assets/listing-2.jpg";
+import listing3 from "@/assets/listing-3.jpg";
+import listing4 from "@/assets/listing-4.jpg";
+import listing5 from "@/assets/listing-5.jpg";
+import listing6 from "@/assets/listing-6.jpg";
+
+const portfolio = [
+  { img: listing1, type: "Retail Showroom", area: "Koregaon Park", status: "Leased", year: "2024", size: "4,200 sq ft" },
+  { img: listing2, type: "Grade-A Office", area: "Baner", status: "Leased", year: "2024", size: "18,000 sq ft" },
+  { img: listing3, type: "Premium Residence", area: "Boat Club Road", status: "Sold", year: "2024", size: "5 BHK · 6,800 sq ft" },
+  { img: listing4, type: "Bank Branch", area: "Camp", status: "Leased", year: "2023", size: "3,500 sq ft" },
+  { img: listing5, type: "Land Parcel", area: "Wagholi", status: "Sold", year: "2023", size: "2.4 acres" },
+  { img: listing6, type: "Hospital Facility", area: "Kalyani Nagar", status: "Leased", year: "2023", size: "32,000 sq ft" },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
