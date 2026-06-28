@@ -65,10 +65,62 @@ function Index() {
       <TwoPaths />
       <LeaseSection />
       <SaleSection />
+      <Portfolio />
       <Trust />
       <Contact />
       <Footer />
     </div>
+  );
+}
+
+function Portfolio() {
+  return (
+    <section id="portfolio" className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-36">
+      <div className="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+        <SectionHeader
+          eyebrow="Selected Work"
+          title="Recent Transactions"
+          sub="A glimpse of the leases closed and properties sold across Pune. Names withheld out of respect for client discretion."
+        />
+        <a href="#contact" className="hidden items-center gap-2 border-b border-[var(--gold)] pb-1 text-sm font-medium text-foreground transition-colors hover:text-[var(--gold)] md:inline-flex">
+          Request full track record <ArrowRight className="h-4 w-4" />
+        </a>
+      </div>
+
+      <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {portfolio.map((p, i) => (
+          <article key={i} className="group relative overflow-hidden rounded-2xl border border-foreground/10 bg-card">
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <img
+                src={p.img}
+                alt={`${p.type} in ${p.area}`}
+                loading="lazy"
+                width={1280}
+                height={1024}
+                className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-foreground/10 to-transparent opacity-90" />
+              <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-background/30 bg-background/15 px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-background backdrop-blur-md">
+                <span className={`h-1.5 w-1.5 rounded-full ${p.status === "Sold" ? "bg-[var(--gold)]" : "bg-background"}`} />
+                {p.status} · {p.year}
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <div className="text-[10px] uppercase tracking-[0.22em] text-background/80">{p.area}</div>
+                <h3 className="mt-1 font-serif text-2xl text-background">{p.type}</h3>
+              </div>
+            </div>
+            <div className="flex items-center justify-between border-t border-foreground/10 px-5 py-4">
+              <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{p.size}</span>
+              <ArrowUpRight className="h-4 w-4 text-[var(--gold)] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <p className="mt-10 text-xs uppercase tracking-[0.22em] text-muted-foreground">
+        ✦ Placeholder imagery — to be replaced with actual closed transactions
+      </p>
+    </section>
   );
 }
 
