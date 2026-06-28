@@ -139,6 +139,7 @@ function Nav() {
         <nav className="hidden items-center gap-10 text-[13px] text-muted-foreground md:flex">
           <a href="#lease" className="transition-colors hover:text-foreground">Leasing</a>
           <a href="#sale" className="transition-colors hover:text-foreground">Sales</a>
+          <a href="#portfolio" className="transition-colors hover:text-foreground">Work</a>
           <a href="#about" className="transition-colors hover:text-foreground">Practice</a>
           <a href="#contact" className="transition-colors hover:text-foreground">Contact</a>
         </nav>
